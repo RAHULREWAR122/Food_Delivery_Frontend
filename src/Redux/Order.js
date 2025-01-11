@@ -8,12 +8,13 @@ const token = JSON.parse(localStorage.getItem('token'))
 export const allOrders = createAsyncThunk(
   "order/allOrders",
   async (_, thunkAPI) => {
+    // console.log("token is " , token)
     try {
         const req = await axios.get(`${api}/allOrders` , {
-         headers : {
-            'Authorization' : `${token}`
-         }
-      });
+          headers : {
+            "Authorization" : `${token}`
+          }
+      }); 
       return req.data;
     }catch (error) {
       console.log("Error in fetching data:", error.message);
@@ -27,7 +28,7 @@ export const addOrder = createAsyncThunk(
   async (authData, thunkAPI) => {
     console.log(authData)
     try {
-      const req = await axios.post( `${api}/addOrder` , authData , {
+      const req = await axios.post(`${api}/addOrder` , authData , {
         headers : {
           "Authorization" : `${token}`
         }

@@ -14,7 +14,7 @@ function AllOrders() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (data?.data && data?.data.length >= 1) {
+    if (data?.data && data?.data.length >= 0) {
       setLoading(false);
     }
   }, [data]);
